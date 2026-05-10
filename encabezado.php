@@ -1,6 +1,6 @@
 <?php
-$moneda = isset($_GET['moneda']) && $_GET['moneda'] === 'peso' ? 'peso' : 'dolar';
-$cotizacion = 1500;
+require_once 'funciones.php';
+$cotizacion = obtener_cotizacion();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,26 +45,12 @@ $cotizacion = 1500;
     </div><!-- End Logo -->
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-        <li class="nav-item dropdown pe-3">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/<?php echo $moneda === 'peso' ? 'ar.png' : 'en.jpg'; ?>" alt="lang" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $moneda === 'peso' ? 'PESO ARGENTINO' : 'DÓLARES'; ?></span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-            <li>
-              <a class="dropdown-item d-flex align-items-center <?php echo $moneda === 'dolar' ? 'active' : ''; ?>" href="listado.php?moneda=dolar">
-                <i class="bi bi-currency-dollar"></i>
-                <span>Dólar Estadounidense</span>
-              </a>
-            </li>
-            <li>
-              <a class="dropdown-item d-flex align-items-center <?php echo $moneda === 'peso' ? 'active' : ''; ?>" href="listado.php?moneda=peso">
-                <i class="bi bi-currency-dollar"></i>
-                <span>Peso Argentino</span>
-              </a>
-            </li>
-          </ul>
+        <li class="nav-item pe-3">
+          <div class="nav-link nav-profile d-flex align-items-center pe-0">
+            <img src="assets/img/<?php echo obtener_imagen_moneda($moneda); ?>" alt="lang" class="rounded-circle">
+            <span class="d-none d-md-block ps-2"><?php echo obtener_nombre_moneda($moneda); ?></span>
+          </div>
         </li>
       </ul>
-    </nav><!-- End Currency -->
-  </header><!-- End Header -->
+    </nav>
+  </header>
