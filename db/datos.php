@@ -1,4 +1,5 @@
 <?php
+//Arrar de datos de los productos
 $productos = [
     [
         "codigo" => "#1234",

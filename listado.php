@@ -1,9 +1,11 @@
 <?php
-$moneda = 'peso'; // Definición manual de la moneda
-require_once 'datos.php';
-include 'encabezado.php'; //puede fallar sin detener
-include 'lateral.php';
+$moneda = strtolower('peso');// 'peso' o 'dolar'
+require_once 'db/datos.php';
+require_once 'secciones/encabezado.php';
+require_once 'secciones/lateral.php';
 
+
+$cotizacion = obtener_cotizacion();
 $simbolo_moneda = obtener_simbolo_moneda($moneda);
 $total_productos_web = calcular_total_web($productos);
 $total_monetario = calcular_monetario_total($productos, $moneda, $cotizacion);
@@ -131,6 +133,6 @@ $total_stock = calcular_stock_total($productos);
                         </div>
                     </div>
 
-<?php 
-include 'footer.php';
- ?>
+                    <?php
+                    require_once 'secciones/pie.php';
+                    ?>

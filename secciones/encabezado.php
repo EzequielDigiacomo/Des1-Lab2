@@ -1,6 +1,5 @@
 <?php
-require_once 'funciones.php';
-$cotizacion = obtener_cotizacion();
+require_once 'funciones/funciones.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -29,9 +29,9 @@ function esta_disponible_web($diferencia)
 function obtener_icono_venta_web($disponible)
 {
     if ($disponible) {
-        return "bi-cart4";
+        return "bi-cart4"; //venta disponible
     } else {
-        return "bi-cart-x-fill";
+        return "bi-cart-x-fill"; // venta no disponible o esperando stock
     }
 }
 
@@ -43,6 +43,8 @@ function obtener_tooltip_venta_web($disponible)
         return "No se permite venta web";
     }
 }
+
+
 
 function calcular_monetario_stock($stock_actual, $precio_final)
 {
@@ -62,7 +64,7 @@ function obtener_simbolo_moneda($moneda)
     if ($moneda === 'peso') {
         return "$";
     }
-    return "U\$S";
+    return "U\$S"; //'U$S';
 }
 
 function obtener_imagen_moneda($moneda)
