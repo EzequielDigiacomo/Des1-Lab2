@@ -1,9 +1,8 @@
 <?php
-$moneda = strtolower('peso');// 'peso' o 'dolar'
-require_once 'db/datos.php';
+$moneda = strtolower('dolar');// 'peso' o 'dolar'
 require_once 'secciones/encabezado.php';
+require_once 'db/datos.php';
 require_once 'secciones/lateral.php';
-
 
 $cotizacion = obtener_cotizacion();
 $simbolo_moneda = obtener_simbolo_moneda($moneda);
@@ -60,7 +59,7 @@ $total_stock = calcular_stock_total($productos);
 
                                             $precio_final = obtener_precio_final($p['precio_usd'], $moneda, $cotizacion);
                                             $monetario_stock = calcular_monetario_stock($p['stock_actual'], $precio_final);
-
+                                            
                                             $progreso_width = $p['stock_actual'];
                                             ?>
                                             <tr>
